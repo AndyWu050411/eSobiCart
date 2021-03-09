@@ -8,12 +8,12 @@
 import Foundation
 
 struct Cart: Codable {
-    let productID: String?
-    let name: String?
-    let image: String?
-    let option: String?
-    let quantity: Int?
-    let price: Int?
+    var productID: String
+    var name: String
+    var image: String
+    var option: String?
+    var quantity: Int
+    var price: Int
 
     enum CodingKeys: String, CodingKey {
         case productID = "productId"

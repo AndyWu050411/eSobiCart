@@ -8,34 +8,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cart View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="eSobiCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CartViewController" customModule="eSobiCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xbn-Ua-TSZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xbn-Ua-TSZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductTableViewCell" rowHeight="128" id="pKR-EQ-gJQ" customClass="ProductTableViewCell" customModule="eSobiCart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="128"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductTableViewCell" rowHeight="113" id="pKR-EQ-gJQ" customClass="ProductTableViewCell" customModule="eSobiCart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pKR-EQ-gJQ" id="hE3-kr-ohY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-Nk-MnN">
-                                                    <rect key="frame" x="20" y="11" width="90" height="106"/>
+                                                    <rect key="frame" x="20" y="8" width="90" height="90"/>
+                                                    <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="Zf5-sA-tX4"/>
                                                         <constraint firstAttribute="height" constant="90" id="unY-ed-5LQ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Qx4-uJ-Rl0">
-                                                    <rect key="frame" x="120" y="22" width="274" height="84.5"/>
+                                                    <rect key="frame" x="120" y="11" width="274" height="84.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNb-10-Xis">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
@@ -67,7 +68,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aVr-HD-pZs">
-                                                            <rect key="frame" x="0.0" y="66.5" width="133.5" height="18"/>
+                                                            <rect key="frame" x="0.0" y="66.5" width="136.5" height="18"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="訂購數量：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qy-zS-q11">
                                                                     <rect key="frame" x="0.0" y="0.0" width="76.5" height="18"/>
@@ -75,8 +76,8 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAK-D3-bcq">
-                                                                    <rect key="frame" x="80.5" y="0.0" width="53" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAK-D3-bcq">
+                                                                    <rect key="frame" x="80.5" y="0.0" width="56" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -87,38 +88,61 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="iYX-Nk-MnN" firstAttribute="top" secondItem="hE3-kr-ohY" secondAttribute="top" constant="8" id="OmB-X6-HJe"/>
                                                 <constraint firstItem="iYX-Nk-MnN" firstAttribute="leading" secondItem="hE3-kr-ohY" secondAttribute="leadingMargin" id="ZrJ-Wd-x3q"/>
-                                                <constraint firstItem="iYX-Nk-MnN" firstAttribute="top" secondItem="hE3-kr-ohY" secondAttribute="topMargin" id="cIs-FG-bvf"/>
                                                 <constraint firstItem="Qx4-uJ-Rl0" firstAttribute="leading" secondItem="iYX-Nk-MnN" secondAttribute="trailing" constant="10" id="gzw-ta-SEW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Qx4-uJ-Rl0" secondAttribute="trailing" id="kcq-w1-YsN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="iYX-Nk-MnN" secondAttribute="bottom" id="tVB-CS-GiJ"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iYX-Nk-MnN" secondAttribute="bottom" constant="8" id="tZt-hN-fwG"/>
                                                 <constraint firstItem="Qx4-uJ-Rl0" firstAttribute="centerY" secondItem="iYX-Nk-MnN" secondAttribute="centerY" id="vtR-iX-AR7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="optionLabel" destination="HIx-v7-h9t" id="qUn-wK-dbr"/>
+                                            <outlet property="priceLabel" destination="A5C-8A-ufQ" id="b9S-0Y-9Oh"/>
+                                            <outlet property="productImageView" destination="iYX-Nk-MnN" id="FYu-mb-RJj"/>
+                                            <outlet property="quantityLabel" destination="YAK-D3-bcq" id="Taa-fl-3b9"/>
+                                            <outlet property="titleLabel" destination="QNb-10-Xis" id="sSB-V1-wwa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="YDh-7h-A26"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gty-Fc-OdR"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gFq-vG-g1C">
-                                <rect key="frame" x="311" y="772" width="87" height="82"/>
+                                <rect key="frame" x="305" y="772" width="93" height="82"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-T5-thf">
-                                        <rect key="frame" x="0.0" y="0.0" width="87" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="93" id="mJi-Eh-z2e"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <state key="normal" title="使用優惠碼">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="promoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="31a-r1-BBf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8al-gp-m4I">
-                                        <rect key="frame" x="17.5" y="49" width="52" height="33"/>
+                                        <rect key="frame" x="0.0" y="49" width="93" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="93" id="zW0-57-CJS"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <state key="normal" title="去買單">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Uu-zg-0CF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2k2-Ir-2Kz">
-                                <rect key="frame" x="174" y="827.5" width="121" height="20.5"/>
+                                <rect key="frame" x="168" y="827.5" width="121" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小計：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTY-as-FhO">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
@@ -148,6 +172,12 @@
                             <constraint firstItem="xbn-Ua-TSZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tRr-sG-QhY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buyButton" destination="8al-gp-m4I" id="Vm7-wa-nVt"/>
+                        <outlet property="promoButton" destination="ZHj-T5-thf" id="fNd-wX-y5M"/>
+                        <outlet property="tableView" destination="xbn-Ua-TSZ" id="Ovp-sS-EX5"/>
+                        <outlet property="totalPriceLabel" destination="nFY-mA-ONk" id="6Ra-mC-3jE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,6 +187,9 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="quaternaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

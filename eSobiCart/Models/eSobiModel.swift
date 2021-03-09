@@ -8,13 +8,13 @@
 import Foundation
 
 struct eSobiModel: Codable {
-    let cart: [Cart]?
-    let promo: [Promo]?
-    let products: [Product]?
+    var carts: [Cart]
+    var promos: [Promo]
+    var products: [Product]
 
     enum CodingKeys: String, CodingKey {
-        case cart = "cart"
-        case promo = "promo"
+        case carts = "cart"
+        case promos = "promo"
         case products = "products"
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 struct Promo: Codable {
-    let promoCode: String?
-    let promoName: String?
-    let price: [Price]?
+    var promoCode: String
+    var promoName: String
+    var price: [Price]
 
     enum CodingKeys: String, CodingKey {
         case promoCode = "promoCode"
@@ -20,8 +20,8 @@ struct Promo: Codable {
 }
 
 struct Price: Codable {
-    let productID: String?
-    let promoPrice: Int?
+    var productID: String
+    var promoPrice: Int
 
     enum CodingKeys: String, CodingKey {
         case productID = "productId"

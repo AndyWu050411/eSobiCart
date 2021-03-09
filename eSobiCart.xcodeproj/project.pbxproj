@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E83CC0FF25F793CE00CEB6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC0FE25F793CE00CEB6BB /* AppDelegate.swift */; };
 		E83CC10125F793CE00CEB6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC10025F793CE00CEB6BB /* SceneDelegate.swift */; };
-		E83CC10325F793CE00CEB6BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC10225F793CE00CEB6BB /* ViewController.swift */; };
+		E83CC10325F793CE00CEB6BB /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC10225F793CE00CEB6BB /* CartViewController.swift */; };
 		E83CC10625F793CE00CEB6BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E83CC10425F793CE00CEB6BB /* Main.storyboard */; };
 		E83CC10825F793CF00CEB6BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E83CC10725F793CF00CEB6BB /* Assets.xcassets */; };
 		E83CC10B25F793CF00CEB6BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E83CC10925F793CF00CEB6BB /* LaunchScreen.storyboard */; };
@@ -18,13 +18,14 @@
 		E83CC11C25F79E3800CEB6BB /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC11B25F79E3800CEB6BB /* Cart.swift */; };
 		E83CC11F25F79E6500CEB6BB /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC11E25F79E6500CEB6BB /* Promo.swift */; };
 		E83CC12225F79E7900CEB6BB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC12125F79E7900CEB6BB /* Product.swift */; };
+		E83CC12725F7AEB900CEB6BB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83CC12625F7AEB800CEB6BB /* ImageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E83CC0FB25F793CE00CEB6BB /* eSobiCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eSobiCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83CC0FE25F793CE00CEB6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E83CC10025F793CE00CEB6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E83CC10225F793CE00CEB6BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E83CC10225F793CE00CEB6BB /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		E83CC10525F793CE00CEB6BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E83CC10725F793CF00CEB6BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E83CC10A25F793CF00CEB6BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +35,7 @@
 		E83CC11B25F79E3800CEB6BB /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		E83CC11E25F79E6500CEB6BB /* Promo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promo.swift; sourceTree = "<group>"; };
 		E83CC12125F79E7900CEB6BB /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		E83CC12625F7AEB800CEB6BB /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +71,9 @@
 				E83CC0FE25F793CE00CEB6BB /* AppDelegate.swift */,
 				E83CC10025F793CE00CEB6BB /* SceneDelegate.swift */,
 				E83CC11A25F79E2300CEB6BB /* Models */,
-				E83CC10225F793CE00CEB6BB /* ViewController.swift */,
+				E83CC10225F793CE00CEB6BB /* CartViewController.swift */,
 				E83CC11325F79B7A00CEB6BB /* ProductTableViewCell.swift */,
+				E83CC12625F7AEB800CEB6BB /* ImageService.swift */,
 				E83CC10425F793CE00CEB6BB /* Main.storyboard */,
 				E83CC10725F793CF00CEB6BB /* Assets.xcassets */,
 				E83CC10925F793CF00CEB6BB /* LaunchScreen.storyboard */,
@@ -162,9 +165,10 @@
 			files = (
 				E83CC11725F79DAB00CEB6BB /* eSobiModel.swift in Sources */,
 				E83CC12225F79E7900CEB6BB /* Product.swift in Sources */,
+				E83CC12725F7AEB900CEB6BB /* ImageService.swift in Sources */,
 				E83CC11F25F79E6500CEB6BB /* Promo.swift in Sources */,
 				E83CC11C25F79E3800CEB6BB /* Cart.swift in Sources */,
-				E83CC10325F793CE00CEB6BB /* ViewController.swift in Sources */,
+				E83CC10325F793CE00CEB6BB /* CartViewController.swift in Sources */,
 				E83CC11425F79B7A00CEB6BB /* ProductTableViewCell.swift in Sources */,
 				E83CC0FF25F793CE00CEB6BB /* AppDelegate.swift in Sources */,
 				E83CC10125F793CE00CEB6BB /* SceneDelegate.swift in Sources */,
