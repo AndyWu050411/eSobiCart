@@ -10,12 +10,12 @@ import Foundation
 struct Promo: Codable {
     var promoCode: String
     var promoName: String
-    var price: [Price]
+    var prices: [Price]
 
     enum CodingKeys: String, CodingKey {
         case promoCode = "promoCode"
         case promoName = "promoName"
-        case price = "price"
+        case prices = "price"
     }
 }
 

@@ -1,0 +1,78 @@
+{
+    "cart": [
+      {
+        "productId": "001",
+        "name": "AIRBOX 方塊舒 -車用強效空氣淨化器",
+        "image": "p001.jpg",
+        "option": "黑",
+        "quantity": 1,
+        "price": 1824
+      },
+      {
+        "productId": "002",
+        "name": "瑞士BONECO-低噪聚風循環扇 F220",
+        "image": "p002.jpg",
+        "quantity": 1,
+        "price": 5880
+      },
+      {
+        "productId": "003",
+        "name": "COWAY 濾淨智控桌上型淨水器P350N",
+        "image": "p003.jpg",
+        "option": "粉",
+        "quantity": 1,
+        "price": 9900
+      }
+    ],
+    "promo": [
+      {
+        "promoCode": "GOODNIGHT",
+        "promoName": "深夜9折限時優惠",
+        "price": [
+          {
+            "productId": "001",
+            "promoPrice": 1642
+          },
+          {
+            "productId": "002",
+            "promoPrice": 5292
+          },
+          {
+            "productId": "003",
+            "promoPrice": 8910
+          }
+        ]
+      }
+    ],
+    "products": [
+      {
+        "productId": "001",
+        "name": "AIRBOX 方塊舒 -車用強效空氣淨化器",
+        "image": "p001.jpg",
+        "option": "黑/銀",
+        "price": 1824,
+        "options": [
+          "黑",
+          "銀"
+        ]
+      },
+      {
+        "productId": "002",
+        "name": "瑞士BONECO-低噪聚風循環扇 F220",
+        "image": "p002.jpg",
+        "price": 5880,
+        "options": []
+      },
+      {
+        "productId": "003",
+        "name": "COWAY 濾淨智控桌上型淨水器P350N",
+        "image": "p003.jpg",
+        "option": "銀/粉",
+        "price": 9900,
+        "options": [
+          "銀",
+          "粉"
+        ]
+      }
+    ]
+  }

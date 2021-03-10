@@ -36,8 +36,8 @@ class CartViewController: UIViewController {
 
     func fetchData() {
         let urlString = "https://gist.githubusercontent.com/Gary-Pan/285e1bfc13a2118abc2579d657d610ab/raw/82dfe9d89c7cda39ca0257cb5ad1d364951a2958/data.json"
-        guard let url = URL(string: urlString) else { return }
-        
+//        guard let url = URL(string: urlString) else { return }
+        let url = NSURL.fileURL(withPath: Bundle.main.path(forResource: "data", ofType: "json")!, isDirectory: true)
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             let decoder = JSONDecoder()
             if let data = data, let result = try? decoder.decode(eSobiModel.self, from: data) {
@@ -60,7 +60,59 @@ class CartViewController: UIViewController {
         return total
     }
     
+    func checkPromo(_ code: String) {
+        guard let promos = eSobiData?.promos else { return }
+        
+        var usedPromo: Promo?
+        for promo in promos {
+            if code == promo.promoCode {
+                usedPromo = promo
+                break
+            }
+        }
+        
+        if usedPromo == nil {
+            let alert = UIAlertController(title: nil, message: "無此優惠碼", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "確認", style: .default)
+            alert.addAction(confirm)
+            present(alert, animated: true, completion: nil)
+        } else {
+            // set promo button
+            promoButton.setTitle(usedPromo?.promoName, for: .normal)
+            promoButton.isEnabled = false
+            promoButton.layer.borderWidth = 0
+            
+            // set price
+            if let carts = eSobiData?.carts, let prices = usedPromo?.prices {
+                for i in 0..<carts.count {
+                    prices.forEach {
+                        if $0.productID == carts[i].productID {
+                            eSobiData?.carts[i].price = $0.promoPrice
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
+            self.totalPriceLabel.text = "$\(self.countTotalPrice())"
+        }
+    }
+    
     @IBAction func promoButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "請輸入優惠碼"
+            textField.keyboardType = .asciiCapable
+        }
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let confirm = UIAlertAction(title: "確認", style: .default) { (_) in
+            if let text = alert.textFields?.first?.text {
+                self.checkPromo(text)
+            }
+        }
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func buyButtonTapped(_ sender: Any) {
