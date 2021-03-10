@@ -30,7 +30,7 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "eSobiCart"
         fetchData()
     }
 
@@ -44,7 +44,8 @@ class CartViewController: UIViewController {
                 self.eSobiData = result
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.totalPriceLabel.text = "$\(self.countTotalPrice())"
+                    let price = NumberHelper().addComma(number: self.countTotalPrice())
+                    self.totalPriceLabel.text = "$" + price
                 }
             }
 
@@ -93,7 +94,8 @@ class CartViewController: UIViewController {
                 }
             }
             self.tableView.reloadData()
-            self.totalPriceLabel.text = "$\(self.countTotalPrice())"
+            let price = NumberHelper().addComma(number: self.countTotalPrice())
+            self.totalPriceLabel.text = "$" + price
         }
     }
     
@@ -116,9 +118,36 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func buyButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "去買單", message: nil, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let confirm = UIAlertAction(title: "確認", style: .default)
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        present(alert, animated: true, completion: nil)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = (sender as? IndexPath),
+              let cart = eSobiData?.carts[indexPath.row],
+              let products = eSobiData?.products,
+              let destinationViewController = segue.destination as? CartDetailViewController
+        else { return }
+        
+        var productForCompare: Product?
+        for product in products {
+            if product.productID == cart.productID {
+                productForCompare = product
+                break
+            }
+        }
+        if productForCompare == nil {
+            return
+        }
+        
+        // set value for destination view controller
+        destinationViewController.cart = cart
+        destinationViewController.product = productForCompare
+    }
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
@@ -134,4 +163,10 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "\(CartDetailViewController.self)Segue", sender: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

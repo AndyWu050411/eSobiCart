@@ -11,6 +11,7 @@ class ProductTableViewCell: UITableViewCell {
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var optionTitleLabel: UILabel!
     @IBOutlet weak var optionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
@@ -31,14 +32,22 @@ class ProductTableViewCell: UITableViewCell {
             downloadImage(from: url)
         }
         titleLabel.text = cart.name
-        optionLabel.text = cart.option
-        priceLabel.text = "$\(cart.price * cart.quantity)"
+        if cart.option == nil {
+            optionTitleLabel.isHidden = true
+            optionLabel.isHidden = true
+        } else {
+            optionLabel.text = cart.option
+        }
+        let price = cart.price * cart.quantity
+        priceLabel.text = "$" + NumberHelper().addComma(number: price)
         quantityLabel.text = "\(cart.quantity)"
     }
     
     override func prepareForReuse() {
         productImageView.image = nil
         titleLabel.text = ""
+        optionTitleLabel.isHidden = false
+        optionLabel.isHidden = false
         optionLabel.text = ""
         priceLabel.text = ""
         quantityLabel.text = ""
