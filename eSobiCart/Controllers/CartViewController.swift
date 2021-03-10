@@ -15,6 +15,7 @@ class CartViewController: UIViewController, CartDetailViewDelegate {
     // ib
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var promoTextLabel: UILabel!
     @IBOutlet weak var promoButton: UIButton! {
         didSet {
             promoButton.layer.borderColor = UIColor.label.cgColor
@@ -84,9 +85,10 @@ class CartViewController: UIViewController, CartDetailViewDelegate {
             present(alert, animated: true, completion: nil)
         } else {
             // set promo button
-            promoButton.setTitle(usedPromo?.promoName, for: .normal)
-            promoButton.isEnabled = false
-            promoButton.layer.borderWidth = 0
+            promoButton.isHidden = true
+            
+            promoTextLabel.text = usedPromo?.promoName
+            promoTextLabel.isHidden = false
             
             // set price
             if let carts = eSobiData?.carts, let prices = usedPromo?.prices {
