@@ -7,9 +7,10 @@
 
 import UIKit
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, CartDetailViewDelegate {
 
     var eSobiData: eSobiModel?
+    var selectedCartIndexPath = IndexPath()
     
     // ib
     @IBOutlet weak var tableView: UITableView!
@@ -36,8 +37,12 @@ class CartViewController: UIViewController {
 
     func fetchData() {
         let urlString = "https://gist.githubusercontent.com/Gary-Pan/285e1bfc13a2118abc2579d657d610ab/raw/82dfe9d89c7cda39ca0257cb5ad1d364951a2958/data.json"
-//        guard let url = URL(string: urlString) else { return }
-        let url = NSURL.fileURL(withPath: Bundle.main.path(forResource: "data", ofType: "json")!, isDirectory: true)
+        // internet
+        guard let url = URL(string: urlString) else { return }
+        
+        // just for offline test
+//        let url = NSURL.fileURL(withPath: Bundle.main.path(forResource: "data", ofType: "json")!, isDirectory: true)
+        
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             let decoder = JSONDecoder()
             if let data = data, let result = try? decoder.decode(eSobiModel.self, from: data) {
@@ -145,9 +150,18 @@ class CartViewController: UIViewController {
         }
         
         // set value for destination view controller
+        destinationViewController.delegate = self
         destinationViewController.cart = cart
         destinationViewController.product = productForCompare
     }
+    
+    func updateCart(cart: Cart) {
+        eSobiData?.carts[selectedCartIndexPath.row] = cart
+        tableView.reloadData()
+        let price = NumberHelper().addComma(number: self.countTotalPrice())
+        self.totalPriceLabel.text = "$" + price
+    }
+    
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
@@ -165,6 +179,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCartIndexPath = indexPath
         performSegue(withIdentifier: "\(CartDetailViewController.self)Segue", sender: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
